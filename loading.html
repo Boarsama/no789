@@ -3,85 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đang Chuyển Tiếp...</title>
+    <title>Loading...</title>
     <style>
         body {
             margin: 0;
             padding: 0;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             background: linear-gradient(to bottom, #87ceeb, #f0f8ff);
-            font-family: Arial, sans-serif;
             color: #333;
-            text-align: center;
-        }
-        .message {
+            font-family: 'Arial', sans-serif;
             font-size: 24px;
-            margin-bottom: 20px;
         }
-        .spinner {
-            border: 4px solid #f0f8ff;
-            border-top: 4px solid #4CAF50;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 2s linear infinite;
+
+        .loading-container {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        .background {
+
+        .clouds {
             position: absolute;
-            top: 0;
+            top: 20%;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            z-index: -1;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="60"><circle cx="50" cy="30" r="30" fill="white"/><circle cx="30" cy="30" r="30" fill="white"/><circle cx="70" cy="30" r="30" fill="white"/></svg>') repeat-x;
+            animation: moveClouds 60s linear infinite;
         }
-        .background img {
-            width: 100%;
-            height: auto;
+
+        @keyframes moveClouds {
+            0% { background-position: 0 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        .bird {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            object-fit: cover;
+            top: 40%;
+            left: -10%;
+            width: 60px;
+            height: 60px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><path d="M10 20 C 30 0, 30 40, 50 20" stroke="black" stroke-width="2" fill="none"/></svg>') no-repeat;
+            animation: fly 4s linear infinite;
         }
-        .background .bird {
-            position: absolute;
-            animation: fly 10s linear infinite;
-        }
+
         @keyframes fly {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(120vw); }
         }
-        .bird1 { top: 20%; }
-        .bird2 { top: 50%; animation-duration: 15s; }
-        .bird3 { top: 70%; animation-duration: 12s; }
+
+        .message {
+            position: relative;
+            z-index: 10;
+        }
     </style>
 </head>
 <body>
 
-<div class="message">Vui lòng đợi 2 giây...</div>
-<div class="spinner"></div>
+    <div class="clouds"></div>
+    <div class="bird"></div>
+    
+    <div class="loading-container">
+        <div class="message">Vui lòng đợi 2 giây...</div>
+    </div>
 
-<div class="background">
-    <img src="path_to_your_cloud_background.jpg" alt="Clouds">
-    <img src="path_to_your_bird1_image.png" class="bird bird1" alt="Bird">
-    <img src="path_to_your_bird2_image.png" class="bird bird2" alt="Bird">
-    <img src="path_to_your_bird3_image.png" class="bird bird3" alt="Bird">
-</div>
-
-<script>
-    setTimeout(function(){
-        window.location.href = "https://www.taisieuno.us/game"; // Thay thế bằng URL của trang đích
-    }, 2000); // 2000 milliseconds = 2 seconds
-</script>
-
+    <script>
+        setTimeout(function(){
+            window.location.href = "https://taisieuno.us/game/";
+        }, 2000);
+    </script>
+    
 </body>
 </html>
