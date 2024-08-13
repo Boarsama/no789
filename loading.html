@@ -3,83 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đang Tải...</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon -->
+    <title>Đang chuyển hướng...</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(to bottom, #87ceeb, #f0f8ff);
-            color: #333;
-            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        h1 {
             font-size: 24px;
         }
-
-        .loading-container {
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
+        p {
+            margin-top: 20px;
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .clouds {
-            position: absolute;
-            top: 20%;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="60"><circle cx="50" cy="30" r="30" fill="white"/><circle cx="30" cy="30" r="30" fill="white"/><circle cx="70" cy="30" r="30" fill="white"/></svg>') repeat-x;
-            animation: moveClouds 60s linear infinite;
-        }
-
-        @keyframes moveClouds {
-            0% { background-position: 0 0; }
-            100% { background-position: 1000px 0; }
-        }
-
-        .bird {
-            position: absolute;
-            top: 40%;
-            left: -10%;
-            width: 60px;
-            height: 60px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><path d="M10 20 C 30 0, 30 40, 50 20" stroke="black" stroke-width="2" fill="none"/></svg>') no-repeat;
-            animation: fly 4s linear infinite;
-        }
-
-        @keyframes fly {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(120vw); }
-        }
-
-        .message {
+        .loading-bar {
+            margin-top: 30px;
+            width: 100px;
+            height: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            overflow: hidden;
             position: relative;
-            z-index: 10;
+        }
+        .loading-bar::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+            background-color: #00ff00;
+            animation: loading 2s linear forwards;
+        }
+        @keyframes loading {
+            0% { width: 0; }
+            100% { width: 100%; }
         }
     </style>
 </head>
 <body>
-
-    <div class="clouds"></div>
-    <div class="bird"></div>
-    
-    <div class="loading-container">
-        <div class="message">Vui lòng đợi 2 giây...</div>
+    <div>
+        <h1>Xin vui lòng chờ...</h1>
+        <p>Đang chuyển hướng, xin vui lòng đợi trong giây lát.</p>
+        <div class="loading-bar"></div>
     </div>
-
     <script>
-        setTimeout(function(){
-            window.location.href = "https://789clubs.pro/";
-        }, 2000);
+        setTimeout(function() {
+            window.location.href = "https://hit88.games/"; // URL trang đích
+        }, 2000); // Chuyển hướng sau 2 giây
     </script>
-    
 </body>
 </html>
